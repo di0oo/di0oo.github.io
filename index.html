@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dio - Visual Artist &amp; Illustrator</title>
+<title>Dio — Visual Artist &amp; Illustrator</title>
 <meta name="description" content="Portfolio of Dio, a visual artist and illustrator exploring surreal, cosmic worlds at the intersection of art and technology.">
 
 <!-- Favicon (generated from the uploaded logo mark) -->
@@ -16,6 +16,20 @@
 </head>
 <body>
 
+<!-- Ambient cosmic backdrop — soft drifting nebula glows behind every section -->
+<div class="ambient-bg" aria-hidden="true">
+  <span class="nebula n1"></span>
+  <span class="nebula n2"></span>
+  <span class="nebula n3"></span>
+</div>
+
+<!-- Custom cursor — a small portal ring that echoes the hero artwork -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<!-- Scroll progress -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
 <!-- =====================================================================
      PRELOADER
      ===================================================================== -->
@@ -23,7 +37,7 @@
   <svg class="preloader-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <path d="M46 18 C36 20 30 28 32 38 C34 47 44 50 46 44 M46 44 L46 78 M46 44 C58 44 68 52 68 62 C68 72 58 80 46 80 L38 80 L38 44" />
   </svg>
-  <span class="preloader-label">Entering the void</span>
+  <span class="preloader-label">Entering the void <b id="preloaderPct">0%</b></span>
 </div>
 
 <!-- =====================================================================
@@ -62,8 +76,11 @@
     <div class="wrap">
       <div class="hero-copy" data-reveal>
         <p class="eyebrow"><span class="shard"></span> Illustrator &amp; Visual Artist</p>
-        <h1 class="hero-title">Dio&nbsp;<span class="accent">rzakaria</span></h1>
-        <p class="hero-sub">Exploring surreal and cosmic realms through digital art.</p>
+        <h1 class="hero-title" id="heroTitle">
+          <span class="word"><span class="word-in">Dio</span></span>
+          <span class="word"><span class="word-in accent">Rizky</span></span>
+        </h1>
+        <p class="hero-sub">Exploring surreal and cosmic realms through digital art and visual storytelling — where art meets technology.</p>
 
         <div class="hero-actions">
           <a href="#portfolio" class="btn btn-primary">
@@ -75,17 +92,17 @@
           </a>
         </div>
 
-        <div class="hero-meta">
+        <div class="hero-meta" id="heroMeta">
           <div>
-            <span>5+</span>
+            <span data-count="5" data-suffix="+">0+</span>
             <small>Years creating</small>
           </div>
           <div>
-            <span>23</span>
+            <span data-count="23">0</span>
             <small>Featured pieces</small>
           </div>
           <div>
-            <span>02</span>
+            <span data-count="2" data-pad="2">00</span>
             <small>Ongoing series</small>
           </div>
         </div>
@@ -105,6 +122,26 @@
       <span class="line"></span> Scroll
     </div>
   </section>
+
+  <!-- ===================================================================
+       MARQUEE — signature moving strip
+       =================================================================== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-set">
+        <span>Surrealism</span><span class="marquee-dot">✦</span>
+        <span>Cosmic Worlds</span><span class="marquee-dot">✦</span>
+        <span>Character Design</span><span class="marquee-dot">✦</span>
+        <span>Visual Storytelling</span><span class="marquee-dot">✦</span>
+      </span>
+      <span class="marquee-set">
+        <span>Surrealism</span><span class="marquee-dot">✦</span>
+        <span>Cosmic Worlds</span><span class="marquee-dot">✦</span>
+        <span>Character Design</span><span class="marquee-dot">✦</span>
+        <span>Visual Storytelling</span><span class="marquee-dot">✦</span>
+      </span>
+    </div>
+  </div>
 
   <!-- ===================================================================
        2. ABOUT
@@ -155,6 +192,7 @@
         <p class="eyebrow"><span class="shard"></span> Portfolio</p>
         <h2>Two worlds, <em>one visual language.</em></h2>
         <p>A curated look at two ongoing series — browse by collection or scroll through everything at once.</p>
+        <span class="draw-line" aria-hidden="true"></span>
       </div>
 
       <div class="portfolio-head" data-reveal>
