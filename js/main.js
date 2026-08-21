@@ -10,6 +10,8 @@
    6.  Portfolio grid render + series filter
    7.  Lightbox
    8.  Misc (footer year, hero parallax)
+   9.  Enhanced motion (cursor, progress bar, hero reveal, count-up,
+       magnetic buttons, card tilt, spotlight, collage parallax)
    ========================================================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -74,11 +76,28 @@ document.addEventListener('DOMContentLoaded', () => {
      2. PRELOADER
      ----------------------------------------------------------------------- */
   const preloader = document.getElementById('preloader');
+  const preloaderPct = document.getElementById('preloaderPct');
+  let preloaderDone = false;
   const hidePreloader = () => {
+    if (preloaderDone) return;
+    preloaderDone = true;
+    if (preloaderPct) preloaderPct.textContent = '100%';
     preloader.classList.add('is-hidden');
     document.body.classList.remove('no-scroll');
+    revealHero();
   };
   document.body.classList.add('no-scroll');
+
+  // tick the percentage counter up while assets load, purely cosmetic
+  if (preloaderPct) {
+    let pct = 0;
+    const pctTimer = setInterval(() => {
+      pct = Math.min(97, pct + Math.random() * 14);
+      preloaderPct.textContent = Math.floor(pct) + '%';
+      if (preloaderDone) clearInterval(pctTimer);
+    }, 140);
+  }
+
   window.addEventListener('load', () => {
     // small extra delay so the draw-on animation gets to finish gracefully
     setTimeout(hidePreloader, 700);
@@ -338,6 +357,170 @@ document.addEventListener('DOMContentLoaded', () => {
       const y = (e.clientY / window.innerHeight - 0.5) * 10;
       heroArt.style.transform = `scale(1.04) translate(${x * -0.4}px, ${y * -0.4}px)`;
     });
+  }
+
+  /* -----------------------------------------------------------------------
+     9. ENHANCED MOTION
+     ----------------------------------------------------------------------- */
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // ---- 9a. Hero entrance: word-cascade title + count-up stats ----
+  const heroTitle = document.getElementById('heroTitle');
+  const heroMeta = document.getElementById('heroMeta');
+  let heroRevealed = false;
+
+  function animateCount(el) {
+    const target = parseFloat(el.dataset.count);
+    if (Number.isNaN(target)) return;
+    const suffix = el.dataset.suffix || '';
+    const pad = parseInt(el.dataset.pad, 10) || 0;
+    const duration = 1400;
+    const start = performance.now();
+    function frame(now) {
+      const p = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const value = Math.round(target * eased);
+      el.textContent = String(value).padStart(pad, '0') + suffix;
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    if (prefersReducedMotion) {
+      el.textContent = String(target).padStart(pad, '0') + suffix;
+    } else {
+      requestAnimationFrame(frame);
+    }
+  }
+
+  function revealHero() {
+    if (heroRevealed) return;
+    heroRevealed = true;
+    if (heroTitle) heroTitle.classList.add('is-revealed');
+    if (heroMeta) {
+      heroMeta.querySelectorAll('[data-count]').forEach((el, i) => {
+        setTimeout(() => animateCount(el), 250 + i * 120);
+      });
+    }
+  }
+
+  // ---- 9b. Scroll progress bar ----
+  const scrollProgress = document.getElementById('scrollProgress');
+  if (scrollProgress) {
+    const updateProgress = () => {
+      const h = document.documentElement;
+      const scrollable = h.scrollHeight - h.clientHeight;
+      const pct = scrollable > 0 ? (h.scrollTop / scrollable) * 100 : 0;
+      scrollProgress.style.width = pct + '%';
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+  }
+
+  // ---- 9c. Custom cursor — a small portal that mirrors the hero art ----
+  if (finePointer && !prefersReducedMotion) {
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+    if (cursorDot && cursorRing) {
+      document.body.classList.add('has-custom-cursor');
+      let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+      let rx = mx, ry = my;
+      window.addEventListener('mousemove', (e) => {
+        mx = e.clientX; my = e.clientY;
+        cursorDot.style.transform = `translate(${mx}px, ${my}px) translate(-50%,-50%)`;
+      });
+      (function cursorLoop() {
+        rx += (mx - rx) * 0.18;
+        ry += (my - ry) * 0.18;
+        cursorRing.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
+        requestAnimationFrame(cursorLoop);
+      })();
+
+      const hoverables = 'a, button, .work-card, .tool-card, [role="button"]';
+      document.addEventListener('mouseover', (e) => {
+        if (e.target.closest(hoverables)) {
+          cursorRing.classList.add('is-hover');
+          cursorDot.classList.add('is-hover');
+        }
+      });
+      document.addEventListener('mouseout', (e) => {
+        if (e.target.closest(hoverables)) {
+          cursorRing.classList.remove('is-hover');
+          cursorDot.classList.remove('is-hover');
+        }
+      });
+      document.addEventListener('mouseleave', () => {
+        cursorDot.style.opacity = '0';
+        cursorRing.style.opacity = '0';
+      });
+      document.addEventListener('mouseenter', () => {
+        cursorDot.style.opacity = '';
+        cursorRing.style.opacity = '';
+      });
+    }
+  }
+
+  // ---- 9d. Magnetic buttons ----
+  if (finePointer && !prefersReducedMotion) {
+    document.querySelectorAll('.btn').forEach((btn) => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.28}px, ${y * 0.5}px)`;
+      });
+      btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
+  }
+
+  // ---- 9e. Work-card 3D tilt ----
+  if (finePointer && !prefersReducedMotion) {
+    grid.addEventListener('mousemove', (e) => {
+      const card = e.target.closest('.work-card');
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width - 0.5;
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.setProperty('--tilt-x', `${(py * -8).toFixed(2)}deg`);
+      card.style.setProperty('--tilt-y', `${(px * 10).toFixed(2)}deg`);
+      card.style.setProperty('--tilt-scale', '1.015');
+    });
+    grid.addEventListener('mouseout', (e) => {
+      const card = e.target.closest('.work-card');
+      if (!card) return;
+      card.style.setProperty('--tilt-x', '0deg');
+      card.style.setProperty('--tilt-y', '0deg');
+      card.style.setProperty('--tilt-scale', '1');
+    });
+  }
+
+  // ---- 9f. Toolkit spotlight ----
+  if (finePointer && !prefersReducedMotion) {
+    document.querySelectorAll('.tool-card').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+      });
+    });
+  }
+
+  // ---- 9g. About collage — subtle scroll parallax ----
+  const collage = document.querySelector('.about-collage');
+  if (collage && !prefersReducedMotion) {
+    const imgA = collage.querySelector('.img-a');
+    const imgB = collage.querySelector('.img-b');
+    let ticking = false;
+    const applyParallax = () => {
+      ticking = false;
+      const rect = collage.getBoundingClientRect();
+      const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+      const offset = (progress - 0.5) * 30;
+      if (imgA) imgA.style.transform = `translateY(${offset * -0.6}px)`;
+      if (imgB) imgB.style.transform = `translateY(${offset * 0.8}px)`;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(applyParallax); }
+    }, { passive: true });
+    applyParallax();
   }
 
 });
