@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dio — Visual Artist &amp; Illustrator</title>
+<meta name="description" content="Portfolio of Dio, a visual artist and illustrator exploring surreal, cosmic worlds at the intersection of art and technology.">
+
+<!-- Favicon (generated from the uploaded logo mark) -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/misc/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/misc/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/misc/favicon-180.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/img/misc/favicon-512.png">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- =====================================================================
+     PRELOADER
+     ===================================================================== -->
+<div id="preloader" aria-hidden="true">
+  <svg class="preloader-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <path d="M46 18 C36 20 30 28 32 38 C34 47 44 50 46 44 M46 44 L46 78 M46 44 C58 44 68 52 68 62 C68 72 58 80 46 80 L38 80 L38 44" />
+  </svg>
+  <span class="preloader-label">Entering the void</span>
+</div>
+
+<!-- =====================================================================
+     NAVIGATION
+     ===================================================================== -->
+<header class="site-nav" id="siteNav">
+  <a href="#top" class="nav-brand">
+    <img src="assets/img/misc/logo-mark.png" alt="" width="28" height="28">
+    Dio
+  </a>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="#about" data-nav-link>About</a>
+    <a href="#portfolio" data-nav-link>Portfolio</a>
+    <a href="#toolkit" data-nav-link>Toolkit</a>
+    <a href="#contact" data-nav-link>Contact</a>
+    <a href="#contact" class="btn btn-primary" data-nav-link>
+      Hire Me
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+    </a>
+  </nav>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+
+  <!-- ===================================================================
+       1. HERO
+       =================================================================== -->
+  <section class="hero" id="hero">
+    <canvas id="starfield" aria-hidden="true"></canvas>
+
+    <div class="wrap">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow"><span class="shard"></span> Illustrator &amp; Visual Artist</p>
+        <h1 class="hero-title">Dio&nbsp;<span class="accent">Rizky</span></h1>
+        <p class="hero-sub">Exploring surreal and cosmic realms through digital art and visual storytelling — where art meets technology.</p>
+
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn btn-primary">
+            Explore Gallery
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost">
+            Get In Touch
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <div>
+            <span>5+</span>
+            <small>Years creating</small>
+          </div>
+          <div>
+            <span>23</span>
+            <small>Featured pieces</small>
+          </div>
+          <div>
+            <span>02</span>
+            <small>Ongoing series</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-art" data-reveal>
+        <div class="hero-art-frame"></div>
+        <img src="assets/img/misc/hero-portal.webp" alt="Surreal illustration of a lone traveller approaching a glowing portal beneath a giant red planet" width="1000" height="1250">
+        <div class="hero-art-caption">
+          <span>Cosmos&nbsp;Series</span>
+          <strong>Into the Portal</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-cue">
+      <span class="line"></span> Scroll
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       2. ABOUT
+       =================================================================== -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="about-collage" data-reveal>
+        <div class="ring"></div>
+        <img class="img-a" src="assets/img/thumb/geometria-eternal-halo.webp" alt="Eternal Halo — colourful surreal portrait illustration">
+        <img class="img-b" src="assets/img/thumb/cosmos-red-planet.webp" alt="Red Planet — cosmic landscape illustration">
+        <span class="shard-lg shard"></span>
+      </div>
+
+      <div class="about-body" data-reveal>
+        <p class="eyebrow"><span class="shard"></span> About</p>
+        <p class="lede">I'm Dio — an illustrator &amp; graphic designer bridging visual art with technology.</p>
+        <p>For over five years I've been exploring the intersection of <strong>Art&nbsp;×&nbsp;Tech</strong>, weaving surrealist aesthetics and cosmic landscapes into character-driven digital artworks.</p>
+        <p>Every piece starts as a fragment — a face, a planet, a doorway — and grows into a small mythology of its own. I make work for collectors and art enthusiasts who want to feel like they've stepped into another world.</p>
+
+        <ul class="about-facts">
+          <li>
+            <b>Surrealism</b>
+            <span>Dreamlike figures &amp; symbolism</span>
+          </li>
+          <li>
+            <b>Cosmic Worlds</b>
+            <span>Planets, portals &amp; landscapes</span>
+          </li>
+          <li>
+            <b>Character Design</b>
+            <span>Authentic, story-driven figures</span>
+          </li>
+          <li>
+            <b>Digital Craft</b>
+            <span>Illustration built with intent</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       3. PORTFOLIO
+       =================================================================== -->
+  <section class="portfolio" id="portfolio">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow"><span class="shard"></span> Portfolio</p>
+        <h2>Two worlds, <em>one visual language.</em></h2>
+        <p>A curated look at two ongoing series — browse by collection or scroll through everything at once.</p>
+      </div>
+
+      <div class="portfolio-head" data-reveal>
+        <div class="series-tabs" id="seriesTabs" role="tablist" aria-label="Filter portfolio by series">
+          <button type="button" class="is-active" data-filter="all" role="tab" aria-selected="true">All Work</button>
+          <button type="button" data-filter="geometria" role="tab" aria-selected="false">Geometria</button>
+          <button type="button" data-filter="cosmos" role="tab" aria-selected="false">Cosmos</button>
+        </div>
+      </div>
+
+      <div class="work-grid" id="workGrid" data-reveal-stagger>
+        <!-- Cards are generated from js/main.js — edit the `artworks` array there
+             to add, remove, or reorder pieces. -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       4. TOOLKIT / SKILLS
+       =================================================================== -->
+  <section class="toolkit" id="toolkit">
+    <div class="wrap">
+      <div data-reveal>
+        <p class="eyebrow"><span class="shard"></span> Toolkit</p>
+        <h2 class="section-head-title" style="font-family:var(--f-display);font-weight:500;font-size:var(--fs-h1);line-height:1.05;">Built with a<br><em style="color:var(--c-ember-soft);font-style:italic;">steady hand.</em></h2>
+        <p style="margin-top:1.1rem;color:var(--c-text-dim);max-width:38ch;">The software behind every illustration — from first sketch to final render.</p>
+
+        <div class="toolkit-focus-list">
+          <span>Surrealism</span>
+          <span>Cosmic Worldbuilding</span>
+          <span>Character Design</span>
+          <span>Visual Storytelling</span>
+        </div>
+      </div>
+
+      <div class="tool-grid" data-reveal-stagger>
+        <div class="tool-card" style="--level:95%">
+          <div class="tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16l3-9 3 9M9 13h4"/></svg>
+          </div>
+          <h3>Adobe Illustrator</h3>
+          <p>Vector linework, geometric motifs and the crystal shapes at the heart of the Geometria series.</p>
+          <div class="tool-bar"><span></span></div>
+        </div>
+
+        <div class="tool-card" style="--level:92%">
+          <div class="tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-9 9"/></svg>
+          </div>
+          <h3>Adobe Photoshop</h3>
+          <p>Texture, light and colour grading — the atmosphere that turns a scene into a place.</p>
+          <div class="tool-bar"><span></span></div>
+        </div>
+
+        <div class="tool-card" style="--level:97%">
+          <div class="tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19V5M12 5c-2 0-3.5 1.5-3.5 3.5S10 12 12 12s3.5-1.5 3.5-3.5S14 5 12 5z"/></svg>
+          </div>
+          <h3>Procreate</h3>
+          <p>Where every piece begins — loose gesture sketches through to final linework on iPad.</p>
+          <div class="tool-bar"><span></span></div>
+        </div>
+
+        <div class="tool-card" style="--level:85%">
+          <div class="tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 000 18 9 9 0 000-18z"/><path d="M3 12h18"/></svg>
+          </div>
+          <h3>CorelDRAW</h3>
+          <p>Precision vector work for symmetry-heavy compositions and print-ready output.</p>
+          <div class="tool-bar"><span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       5. CONTACT
+       =================================================================== -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow"><span class="shard"></span> Contact</p>
+      <h2>Let's build your <em>next world.</em></h2>
+      <p class="contact-sub">Open for illustration commissions, collaborations and collectors looking for something authentic. Reach out — I read every message.</p>
+
+      <div class="contact-links" data-reveal-stagger>
+        <a href="mailto:diorizky16@gmail.com">
+          <span>
+            <span class="tag">Email</span>
+            diorizky16@gmail.com
+          </span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+        </a>
+        <a href="https://instagram.com/diorzakaria" target="_blank" rel="noopener">
+          <span>
+            <span class="tag">Instagram</span>
+            @diorzakaria
+          </span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =========================================================================
+     FOOTER
+     ========================================================================= -->
+<footer class="site-footer">
+  <span>© <span id="year"></span> Dio. All artwork rights reserved.</span>
+  <a href="#top" class="to-top">
+    Back to top
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </a>
+</footer>
+
+<!-- =========================================================================
+     LIGHTBOX
+     ========================================================================= -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous artwork">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next artwork">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <div class="lightbox-frame">
+      <img id="lightboxImg" src="" alt="">
+    </div>
+    <div class="lightbox-caption">
+      <div>
+        <span class="series-tag" id="lightboxSeries"></span>
+        <h3 id="lightboxTitle"></h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
