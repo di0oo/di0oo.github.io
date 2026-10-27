@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diorzakaria | Surrealist Artist</title>
+<meta name="description" content="Diorzakaria is a surrealist artist. Two ongoing series, Geometria and Cosmos, drawn from the quiet place between memory and dream.">
+<meta name="theme-color" content="#060608">
+<meta property="og:title" content="Diorzakaria | Surrealist Artist">
+<meta property="og:description" content="Worlds remembered from the other side of sleep.">
+<meta property="og:type" content="website">
+
+<script>document.documentElement.classList.add('js');</script>
+
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/misc/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/misc/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/misc/favicon-180.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/img/misc/favicon-512.png">
+
+<link rel="preload" href="assets/fonts/cormorant-garamond-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cormorant-garamond-latin-300-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-loading">
+
+<!-- Atmosphere layers -->
+<canvas id="motes" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor-label" id="cursorLabel"></span></div>
+
+<!-- Scroll progress (thin vertical line) -->
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<!-- Chapter index -->
+<nav class="index" id="chapterIndex" aria-label="Sections">
+  <a href="#top" data-index="top"><i>0</i><span>Prologue</span></a>
+  <a href="#statement" data-index="statement"><i>I</i><span>Statement</span></a>
+  <a href="#geometria" data-index="geometria"><i>II</i><span>Geometria</span></a>
+  <a href="#cosmos" data-index="cosmos"><i>III</i><span>Cosmos</span></a>
+  <a href="#motifs" data-index="motifs"><i>IV</i><span>Motifs</span></a>
+  <a href="#contact" data-index="contact"><i>V</i><span>Enquiries</span></a>
+</nav>
+
+<!-- Preloader: two curtains part to reveal the work -->
+<div id="preloader" aria-hidden="true">
+  <div class="curtain curtain-l"></div>
+  <div class="curtain curtain-r"></div>
+  <div class="preloader-core">
+    <div class="preloader-name" id="preloaderName">Diorzakaria</div>
+    <div class="preloader-line"><span id="preloaderBar"></span></div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<header class="site-nav" id="siteNav">
+  <a href="#top" class="nav-brand" aria-label="Diorzakaria, home">
+    <img src="assets/img/misc/logo-mark.png" alt="" width="34" height="34">
+    <span>Diorzakaria</span>
+  </a>
+  <nav class="nav-links" id="navLinks" aria-label="Primary">
+    <a href="#statement" data-nav-link><span>Statement</span></a>
+    <a href="#geometria" data-nav-link><span>Geometria</span></a>
+    <a href="#cosmos" data-nav-link><span>Cosmos</span></a>
+    <a href="#motifs" data-nav-link><span>Motifs</span></a>
+    <a href="#contact" class="nav-cta" data-nav-link><span>Enquire</span></a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main id="top">
+
+  <!-- ===================================================================
+       PROLOGUE - the hero
+       =================================================================== -->
+  <section class="hero" id="hero">
+    <canvas id="fog" aria-hidden="true"></canvas>
+
+    <!-- drifting worlds, each at its own depth -->
+    <div class="worlds" aria-hidden="true">
+      <span class="world w1" data-depth="0.9"></span>
+      <span class="world w2" data-depth="0.5"></span>
+      <span class="world w3" data-depth="1.4"></span>
+      <span class="world w4" data-depth="0.3"></span>
+      <span class="world w5" data-depth="1.1"></span>
+    </div>
+
+    <div class="hero-stage">
+      <div class="hero-eyebrow reveal-line"><span>Surrealist Artist</span></div>
+
+      <figure class="doorway" id="doorway">
+        <div class="doorway-inner">
+          <img src="assets/img/misc/hero-portal.webp" alt="A lone traveller approaches a glowing threshold beneath a giant red planet" width="1000" height="1250" fetchpriority="high">
+          <div class="lantern" id="lantern"></div>
+        </div>
+        <div class="doorway-ring" aria-hidden="true"></div>
+      </figure>
+
+      <h1 class="hero-name" id="heroName" aria-label="Diorzakaria">
+        <span class="hero-name-inner" aria-hidden="true"></span>
+      </h1>
+
+      <p class="hero-tag reveal-line"><span>Worlds remembered from the other side of sleep.</span></p>
+    </div>
+
+    <div class="hero-foot">
+      <span>Selected works<br><b>II series · XXIII plates</b></span>
+      <a href="#statement" class="scroll-cue"><span class="cue-line"></span>Descend</a>
+      <span class="hero-foot-r">Open for commissions<br><b>&amp; private collections</b></span>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Slow strip of words
+       =================================================================== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+      <span class="marquee-set">
+        <span>Reverie</span><i></i><span>Threshold</span><i></i><span>Silence</span><i></i><span>Memory</span><i></i><span>Orbit</span><i></i><span>Solitude</span><i></i>
+      </span>
+      <span class="marquee-set">
+        <span>Reverie</span><i></i><span>Threshold</span><i></i><span>Silence</span><i></i><span>Memory</span><i></i><span>Orbit</span><i></i><span>Solitude</span><i></i>
+      </span>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       I - STATEMENT
+       =================================================================== -->
+  <section class="statement" id="statement">
+    <div class="wrap">
+      <p class="chapter-no"><span>I</span> Statement</p>
+
+      <p class="manifesto" id="manifesto">Every piece begins as a fragment: a face, a planet, a doorway. It grows, slowly, into a small mythology of its own.</p>
+
+      <div class="statement-grid">
+        <div class="statement-visual" id="statementVisual">
+          <figure class="sv sv-a" data-speed="-0.06">
+            <img src="assets/img/full/geometria-eternal-halo.webp" alt="Eternal Halo: a face divided between relic and radiance" loading="lazy" width="1080" height="1350">
+          </figure>
+          <figure class="sv sv-b" data-speed="0.09">
+            <img src="assets/img/full/cosmos-red-planet.webp" alt="Red Planet: a lone figure walking toward a threshold" loading="lazy" width="1080" height="1350">
+          </figure>
+          <span class="sv-orbit" aria-hidden="true"></span>
+        </div>
+
+        <div class="statement-body">
+          <p class="lede" data-reveal>I make doors to places that do not exist yet.</p>
+          <p data-reveal>For over five years I have drawn figures, planets and thresholds out of the same quiet place, somewhere between memory and dream. Faces become terrain. Silence becomes a landscape. A single figure in red crosses worlds that have long outlived their makers.</p>
+          <p data-reveal>I make work for collectors who want to feel, even briefly, that they have stepped through.</p>
+
+          <div class="figures" data-reveal>
+            <div><b data-count="5" data-suffix="+">0</b><span>Years of practice</span></div>
+            <div><b data-count="23">0</b><span>Plates</span></div>
+            <div><b data-count="2" data-pad="2">00</b><span>Ongoing series</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       II - GEOMETRIA (pinned horizontal gallery)
+       =================================================================== -->
+  <section class="chapter" id="geometria" data-series="geometria">
+    <div class="chapter-pin">
+      <div class="chapter-track" data-track>
+        <div class="chapter-intro">
+          <p class="chapter-no"><span>II</span> Series</p>
+          <h2 class="chapter-title"><span class="line"><span>Geo</span></span><span class="line"><em>metria</em></span></h2>
+          <p class="chapter-text">Faces as terrain. Identity assembled from pattern, colour and fracture, portraits of the mind, seen from the inside.</p>
+          <p class="chapter-hint"><span class="hint-line"></span>Keep scrolling</p>
+        </div>
+        <!-- plates are rendered from js/main.js -->
+      </div>
+      <div class="chapter-hud">
+        <span class="hud-count"><b data-hud-current>01</b> / <span data-hud-total>13</span></span>
+        <span class="hud-bar"><span data-hud-bar></span></span>
+        <span class="hud-name">Geometria</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       III - COSMOS (pinned horizontal gallery)
+       =================================================================== -->
+  <section class="chapter" id="cosmos" data-series="cosmos">
+    <div class="chapter-pin">
+      <div class="chapter-track" data-track>
+        <div class="chapter-intro">
+          <p class="chapter-no"><span>III</span> Series</p>
+          <h2 class="chapter-title"><span class="line"><span>Cos</span></span><span class="line"><em>mos</em></span></h2>
+          <p class="chapter-text">A lone figure in red, crossing worlds that have outlived their makers. Distance, scale, and the stillness before a threshold.</p>
+          <p class="chapter-hint"><span class="hint-line"></span>Keep scrolling</p>
+        </div>
+      </div>
+      <div class="chapter-hud">
+        <span class="hud-count"><b data-hud-current>01</b> / <span data-hud-total>10</span></span>
+        <span class="hud-bar"><span data-hud-bar></span></span>
+        <span class="hud-name">Cosmos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       IV - MOTIFS
+       =================================================================== -->
+  <section class="motifs" id="motifs">
+    <div class="wrap">
+      <p class="chapter-no"><span>IV</span> Recurring Motifs</p>
+      <h2 class="section-title" data-split>The same dream,<br><em>returning in different rooms.</em></h2>
+
+      <ul class="motif-list" id="motifList">
+        <li class="motif" data-art="cosmos-into-the-portal" tabindex="0" role="button">
+          <span class="motif-no">01</span>
+          <span class="motif-name">The Threshold</span>
+          <span class="motif-desc">Doorways, portals, gates: the moment just before stepping through.</span>
+          <span class="motif-thumb"><img src="assets/img/thumb/cosmos-into-the-portal.webp" alt="" loading="lazy"></span>
+        </li>
+        <li class="motif" data-art="cosmos-the-gatewatch" tabindex="0" role="button">
+          <span class="motif-no">02</span>
+          <span class="motif-name">The Witness</span>
+          <span class="motif-desc">A solitary figure in red, small against vast and indifferent worlds.</span>
+          <span class="motif-thumb"><img src="assets/img/thumb/cosmos-the-gatewatch.webp" alt="" loading="lazy"></span>
+        </li>
+        <li class="motif" data-art="geometria-eternal-halo" tabindex="0" role="button">
+          <span class="motif-no">03</span>
+          <span class="motif-name">The Mask</span>
+          <span class="motif-desc">Faces worn as pattern. Portraits that behave like landscapes.</span>
+          <span class="motif-thumb"><img src="assets/img/thumb/geometria-eternal-halo.webp" alt="" loading="lazy"></span>
+        </li>
+        <li class="motif" data-art="cosmos-whispering-void" tabindex="0" role="button">
+          <span class="motif-no">04</span>
+          <span class="motif-name">The Void</span>
+          <span class="motif-desc">Empty space that somehow still feels like it is speaking.</span>
+          <span class="motif-thumb"><img src="assets/img/thumb/cosmos-whispering-void.webp" alt="" loading="lazy"></span>
+        </li>
+        <li class="motif" data-art="cosmos-forsaken-monument" tabindex="0" role="button">
+          <span class="motif-no">05</span>
+          <span class="motif-name">The Monument</span>
+          <span class="motif-desc">What remains standing long after the builders are gone.</span>
+          <span class="motif-thumb"><img src="assets/img/thumb/cosmos-forsaken-monument.webp" alt="" loading="lazy"></span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="motif-preview" id="motifPreview" aria-hidden="true"><img id="motifPreviewImg" src="" alt=""></div>
+  </section>
+
+  <!-- ===================================================================
+       V - ENQUIRIES
+       =================================================================== -->
+  <section class="contact" id="contact">
+    <div class="contact-bg" aria-hidden="true"><img src="assets/img/full/cosmos-whispering-void.webp" alt="" loading="lazy"></div>
+    <div class="wrap">
+      <p class="chapter-no"><span>V</span> Enquiries</p>
+      <h2 class="contact-title" data-split>If a work has<br>stayed with you,<br><em>say so.</em></h2>
+      <p class="contact-sub" data-reveal>Open to commissions, collaborations and private collectors. Every message is read.</p>
+
+      <div class="contact-links" data-reveal>
+        <a href="mailto:diorizky16@gmail.com" class="contact-link">
+          <small>Correspondence</small>
+          <span class="contact-big">diorizky16@gmail.com</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 18L18 6M18 6H8M18 6V16"/></svg>
+        </a>
+        <a href="https://instagram.com/diorzakaria" target="_blank" rel="noopener" class="contact-link">
+          <small>Instagram</small>
+          <span class="contact-big">@diorzakaria</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 18L18 6M18 6H8M18 6V16"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span>© <span id="year">2026</span> Diorzakaria. All artwork rights reserved.</span>
+  <a href="#top" class="to-top">Return to the beginning</a>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Artwork viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close"><span></span><span></span></button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous plate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next plate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 5l7 7-7 7"/></svg></button>
+  <div class="lb-stage" id="lbStage"><img id="lbImg" src="" alt=""></div>
+  <div class="lb-caption">
+    <span class="lb-meta" id="lbMeta"></span>
+    <h3 id="lbTitle"></h3>
+    <p id="lbDesc"></p>
+  </div>
+  <span class="lb-hint">Click to inspect</span>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
